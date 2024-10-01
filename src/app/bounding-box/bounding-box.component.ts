@@ -12,7 +12,6 @@ import { FormsModule } from '@angular/forms';
 export class BoundingBoxComponent {
   @ViewChild('imageWrapperEl') imageWrapperEl!: ElementRef;
   public uploadedImage: string | ArrayBuffer | null = null;
-  public isDragging = false;
   public dragging = false;
   public dragStart = { x: 0, y: 0 };
   public initialPosition = { x: 0, y: 0 };
