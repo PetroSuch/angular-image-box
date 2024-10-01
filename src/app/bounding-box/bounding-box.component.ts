@@ -88,13 +88,13 @@ export class BoundingBoxComponent {
     }
   }
 
-  onBoxTouchStart(event: TouchEvent) {
+  public onBoxTouchStart(event: TouchEvent) {
     this.dragging = true;
     this.dragStart = { x: event.touches[0].clientX, y: event.touches[0].clientY };
     event.preventDefault();
   }
 
-  onBoxTouchMove(event: TouchEvent) {
+  public onBoxTouchMove(event: TouchEvent) {
     if (this.dragging) {
       const touch = event.touches[0];
       const deltaX = touch.clientX - this.dragStart.x;
@@ -107,7 +107,7 @@ export class BoundingBoxComponent {
     }
   }
 
-  onBoxTouchEnd(event: TouchEvent) {
+  public onBoxTouchEnd(event: TouchEvent) {
     this.dragging = false;
     event.preventDefault();
   }
