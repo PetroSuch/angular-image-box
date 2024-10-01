@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { BoundingBoxComponent } from './bounding-box/bounding-box.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [BoundingBoxComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

@@ -1,0 +1,33 @@
+.image-container {
+    position: relative;
+}
+
+.bounding-box {
+    top: 0;
+    left: 0;
+    position: absolute;
+    border: 3px solid green;
+}
+
+.image-wrapper{
+    width: auto;
+    height: auto;
+    display: inline-block;
+    position: relative;
+}
+
+.bounding-box-inputs {
+    margin-top: 20px;
+}
+
+input {
+    margin-right: 10px;
+}
+
+.img-fluid{
+    user-select: none;
+}
+
+.d-none {
+    display: none;
+}

@@ -1,1 +1,45 @@
-<p>bounding-box works!</p>
+<div class="container mt-4">
+    <div class="form-group">
+        <label for="imageUpload" class="form-label">Upload Image:</label>
+        <input type="file" class="form-control" id="imageUpload" (change)="onImageUpload($event)" accept="image/*" />
+    </div>
+
+    <div class="bounding-box-inputs row mt-3">
+        <div class="col-md-3">
+            <label for="x" class="form-label">X Coordinate:</label>
+            <input type="number" class="form-control" id="x" [(ngModel)]="boundingBox.x" (ngModelChange)="validateBoundingBox()" min="0" />
+        </div>
+        <div class="col-md-3">
+            <label for="y" class="form-label">Y Coordinate:</label>
+            <input type="number" class="form-control" id="y" [(ngModel)]="boundingBox.y" (ngModelChange)="validateBoundingBox()" min="0" />
+        </div>
+        <div class="col-md-3">
+            <label for="width" class="form-label">Width:</label>
+            <input type="number" class="form-control" id="width" [(ngModel)]="boundingBox.width" (ngModelChange)="validateBoundingBox()" min="1" [max]="maxWidth" />
+        </div>
+        <div class="col-md-3">
+            <label for="height" class="form-label">Height:</label>
+            <input type="number" class="form-control" id="height" [(ngModel)]="boundingBox.height" (ngModelChange)="validateBoundingBox()" min="1" [max]="maxHeight" />
+        </div>
+    </div>
+    <div [ngClass]="{'d-none': !uploadedImage}" class="image-container mt-4 text-center">
+        <div #imageWrapperEl class="image-wrapper">
+            <img  [src]="uploadedImage" class="img-fluid" alt="Uploaded Image" />
+    
+            <div
+                class="bounding-box position-absolute border border-danger"
+                [style.left.px]="boundingBox.x"
+                [style.top.px]="boundingBox.y"
+                [style.width.px]="boundingBox.width"
+                [style.height.px]="boundingBox.height"
+                (mouseup)="onBoxMouseUp()"
+                (mousedown)="onBoxMouseDown($event)"
+                (mousemove)="onBoxMouseMove($event)"
+                (touchstart)="onBoxTouchStart($event)"
+                (touchend)="onBoxTouchEnd($event)"
+                (touchmove)="onBoxTouchMove($event)" 
+                [style.cursor]="dragging ? 'grabbing' : 'grab'"
+            ></div>
+        </div>
+    </div>
+</div>
